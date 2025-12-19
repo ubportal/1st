@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Profile | AMS</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body {
+  background: #f1f1f1;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.ams-header {
+  background: linear-gradient(#555, #2f2f2f);
+  color: white;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ams-header img {
+  height: 45px;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.sidebar {
+  background: linear-gradient(#4b4b4b, #2e2e2e);
+  color: #fff;
+  min-height: 100vh;
+}
+
+.sidebar-user {
+  padding: 15px;
+  border-bottom: 1px solid #444;
+  font-size: 13px;
+}
+
+.ams-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.student-name {
+  color: #ffd24d;
+  font-weight: bold;
+}
+
+.student-role {
+  color: #ccc;
+}
+
+.change-password {
+  display: inline-block;
+  color: #ff4d4d;
+  font-size: 12px;
+  margin: 5px 0;
+  text-decoration: none;
+}
+
+.ams-program {
+  color: #ccc;
+  font-size: 12px;
+}
+
+.change-password {
+  display: inline-block;       /* makes it behave like a button */
+  background-color: red;       /* red background */
+  color: white;                /* white text for contrast */
+  padding: 10px 20px;          /* spacing inside */
+  text-decoration: none;       /* remove underline */
+  border-radius: 4px;          /* rounded corners */
+  font-weight: bold;           /* bold text */
+  cursor: pointer;             /* pointer cursor on hover */
+  transition: background 0.3s; /* smooth hover effect */
+}
+
+.change-password:hover {
+  background-color: darkred;   /* darker red on hover */
+}
+
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 12px 18px;
+  border-bottom: 1px solid #444;
+}
+
+.sidebar li.active {
+  background: #c9302c;
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+.main-content {
+  padding: 20px;
+}
+
+.profile-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.profile-top {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 20px;
+}
+
+.profile-photo img {
+  width: 100%;
+  max-width: 180px;
+  border: 2px solid #ccc;
+}
+
+.student-id {
+  color: #c9302c;
+  font-weight: bold;
+}
+
+.section {
+  margin-top: 20px;
+}
+
+.section-header {
+  background: #ddd;
+  padding: 6px 12px;
+  font-weight: bold;
+  border-left: 6px solid #c9302c;
+}
+
+.section-body {
+  background: #fff;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.label {
+  font-size: 12px;
+  color: #666;
+}
+
+.value {
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: -260px;
+    width: 260px;
+    transition: 0.3s;
+    z-index: 1000;
+  }
+
+  .sidebar.show {
+    left: 0;
+  }
+
+  .profile-top {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .section-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+.toggle-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+}
+
+@media (max-width: 768px) {
+  .toggle-btn {
+    display: block;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="ams-header">
+  <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+  <img src="images/ublogo.png">
+  <strong>University of Baguio</strong>
+</header>
+
+<div class="container-fluid">
+  <div class="row g-0">
+    <nav class="col-md-3 col-lg-2 sidebar" id="sidebar">
+      <div class="sidebar-user">
+        <center>
+        <div class="ams-title">Academic Management System</div>
+        <div class="student-name">AMBER CARLO M. HUELAR</div>
+        <div class="student-role">Student</div>
+        <a href="#" class="change-password">Change Password</a>
+        <div class="ams-program">AMS : Baccalaureate - SIT</div>
+        </center>
+      </div>
+
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li class="active"><a href="#">Profile</a></li>
+        <li><a href="#">Schedule</a></li>
+        <li><a href="#">Grades Records</a></li>
+        <li><a href="#">Enrollment</a></li>
+        <li><a href="#">Account & Assessment</a></li>
+        <li><a href="#">Online Payment</a></li>
+      </ul>
+    </nav>
+
+    <main class="col-md-9 col-lg-10 main-content">
+      <div class="profile-card">
+
+        <div class="profile-top">
+          <div class="profile-photo">
+            <img src="images/male.png">
+          </div>
+
+          <div>
+            <div class="student-id">20255553</div>
+            <strong>AMBER CARLO M. HUELAR</strong><br>
+            BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY (BSIT)<br>
+            SCHOOL OF INFORMATION TECHNOLOGY<br>
+            CURRICULUM 2025
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-header">PERSONAL AND PHYSICAL INFORMATION</div>
+          <div class="section-body">
+            <div><span class="label">Birthday</span><div class="value">Dec 7, 2005</div></div>
+            <div><span class="label">Birthplace</span><div class="value">Baguio City</div></div>
+            <div><span class="label">Civil Status</span><div class="value">Single</div></div>
+            <div><span class="label">Gender</span><div class="value">Male</div></div>
+            <div><span class="label">Nationality</span><div class="value">Filipino</div></div>
+            <div><span class="label">Religion</span><div class="value">N/A</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-header">CONTACT INFORMATION</div>
+          <div class="section-body">
+            <div><span class="label">Mobile</span><div class="value">0989201782</div></div>
+            <div><span class="label">Email</span><div class="value">huelar55@gmail.com</div></div>
+            <div><span class="label">Address</span><div class="value">City Camp, Baguio City</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-header">ACADEMIC INFORMATION</div>
+          <div class="section-body">
+            <div><span class="label">Admission Year</span><div class="value">2025</div></div>
+            <div><span class="label">Academic Status</span><div class="value">New Student / Regular</div></div>
+            <div><span class="label">Education Service</span><div class="value">Public</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-header">EDUCATIONAL BACKGROUND</div>
+          <div class="section-body">
+            <div>Baguio City High School</div>
+            <div>HUMSS Strand</div>
+            <div>Senior High Graduate</div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</div>
+
+<script>
+function toggleSidebar() {
+  document.getElementById("sidebar").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
